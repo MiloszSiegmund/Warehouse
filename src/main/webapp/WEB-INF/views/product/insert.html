@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Insert new product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-1 col-xl-8 offset-xl-1 col-lg-10 offset-lg-1 bg-dark text-white">
+
+            <h1>Product form</h1>
+            <form
+                    th:action="@{/product/form}"
+                    method="post"
+                    th:object="${product}"
+            >
+                <div class="form-group">
+                    <label for="name">Nazwa:</label>
+                    <input class="form-control" id="name" type="text" th:field="*{name}" required/>
+                    <span class="h5 text-danger" th:if="${errors.containsKey('name')}" th:text="${errors.get('name')}"></span>
+                </div>
+                <div class="form-group">
+                    <label for="price">Cena:</label>
+                    <input class="form-control" id="price" type="number" th:field="*{price}" required />
+                    <span class="h5 text-danger" th:if="${errors.containsKey('price')}" th:text="${errors.get('price')}"></span>
+                </div>
+                <div class="form-group">
+                    <label for="colour">Kolor:</label>
+                    <input class="form-control" id="colour" type="text" th:field="*{colour}" required />
+                    <span class="h5 text-danger" th:if="${errors.containsKey('colour')}" th:text="${errors.get('colour')}"></span>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfProduction">Data produkcji:</label>
+                    <input class="form-control" id="dateOfProduction" type="date" th:field="*{dateOfProduction}" required />
+                    <span class="h5 text-danger" th:if="${errors.containsKey('dateOfProduction')}" th:text="${errors.get('dateOfProduction')}"></span>
+                </div>
+                <div class="form-group">
+                    <h3>Producer</h3>
+                    <select class="form-control" th:field="*{producer}">
+                        <option th:each="e : ${producer}" th:value="${e}" th:text="${e.getProducerName() + ' ' + e.getProducerCity()}"></option>
+                    </select>
+                    <span class="h5 text-danger" th:if="${errors.containsKey('producer')}" th:text="${errors.get('producer')}"></span>
+                </div>
+                <div class="form-group">
+                    <h3>Category</h3>
+                    <select class="form-control" th:field="*{category}">
+                        <option th:each="e : ${category}" th:value="${e}" th:text="${e.getCategoryName()}"></option>
+                    </select>
+                    <span class="h5 text-danger" th:if="${errors.containsKey('category')}" th:text="${errors.get('category')}"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <input class="btn btn-success" type="submit" value="Send"/>
+                    <input class="ml-1 btn btn-danger" type="reset" value="Reset"/>
+                    <a class="ml-1 btn btn-primary" href="/product/select_all">Products</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+</html>

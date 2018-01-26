@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="mt-5 container">
+    <div class="row">
+        <div class="col-6 offset-left">
+            <h1 class="h1 mb-5">Products</h1>
+            <table class="table h6">
+                <thead class="thead-dark">
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Cena</th>
+                <th>Kolor</th>
+                <th>Data produkcji</th>
+
+                </thead>
+                <tbody>
+                <tr th:each="p : ${products}">
+                    <td th:text="${p.productId}"></td>
+                    <td th:text="${p.productName}"></td>
+                    <td th:text="${p.productPrice}"></td>
+                    <td th:text="${p.productColour}"></td>
+                    <td th:text="${p.productDateOfProduction}"></td>
+
+
+                    <td><a class="btn btn-success" th:href="@{/product/update/{id}(id=${p.productId})}">Modify</a></td>
+                    <td><a class="ml-3 btn btn-secondary" th:href="@{/product/details/{id}(id=${p.productId})}">Details</a></td>
+                    <td><a class="ml-3 btn btn-danger" th:href="@{/product/delete/{id}(id=${p.productId})}">Delete</a></td>
+
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+</html>
