@@ -20,7 +20,7 @@ public class Producer {
     private Long id;
     private String name;
     private String city;
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "producer")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "producer")
     private List<Product> products = new ArrayList<>();
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn (name = "tradeId")

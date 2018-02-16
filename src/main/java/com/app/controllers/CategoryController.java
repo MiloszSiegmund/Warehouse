@@ -79,7 +79,7 @@ public class CategoryController {
         }
         return "redirect:/category/select_all";
     }
-    @RequestMapping(value = "/category/update/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/category/update",method = RequestMethod.POST)
     public String categoryUpdatePost(@ModelAttribute Category category, Model model, HttpServletRequest request)
     {
         if (category != null) {

@@ -25,12 +25,13 @@ public class Product {
     @Id
     @GeneratedValue
     private Long id;
+    //@Pattern(regexp = "[A-Z][a-z]", message = "name is not correct")
     private String name;
     private BigDecimal price;
     private String colour;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfProduction;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "categoryId")
     private Category category;
     @ManyToOne(cascade = CascadeType.PERSIST)

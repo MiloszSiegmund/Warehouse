@@ -80,7 +80,7 @@ public class TradeController {
         }
         return "redirect:/trade/select_all";
     }
-    @RequestMapping(value = "/trade/update/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/trade/update",method = RequestMethod.POST)
     public String tradeUpdatePost(@ModelAttribute Trade trade, Model model, HttpServletRequest request)
     {
         if (trade != null) {

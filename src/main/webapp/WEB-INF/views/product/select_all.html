@@ -18,9 +18,11 @@
                 <th>Cena</th>
                 <th>Kolor</th>
                 <th>Data produkcji</th>
+                <th>Producent</th>
+                <th>Kategoria</th>
 
                 </thead>
-                <tbody>
+                <tr>
                 <tr th:each="p : ${products}">
                     <td th:text="${p.productId}"></td>
                     <td th:text="${p.productName}"></td>
@@ -29,9 +31,17 @@
                     <td th:text="${p.productDateOfProduction}"></td>
 
 
+
                     <td><a class="btn btn-success" th:href="@{/product/update/{id}(id=${p.productId})}">Modify</a></td>
                     <td><a class="ml-3 btn btn-secondary" th:href="@{/product/details/{id}(id=${p.productId})}">Details</a></td>
                     <td><a class="ml-3 btn btn-danger" th:href="@{/product/delete/{id}(id=${p.productId})}">Delete</a></td>
+                <tr th:each="r:${producer}">
+                    <td th:text="${r.producerName}"></td>
+                    <td th:text="${r.producerCity}"></td>
+                </tr>
+                <tr th:each="c : ${category}">
+                    <td th:text="${c.categoryName}"></td>
+                </tr>
 
 
                 </tr>

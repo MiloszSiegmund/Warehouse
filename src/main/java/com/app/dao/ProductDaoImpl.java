@@ -1,5 +1,7 @@
 package com.app.dao;
 
+import com.app.model.Category;
+import com.app.model.Producer;
 import com.app.model.Product;
 import org.springframework.stereotype.Repository;
 
@@ -7,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @Repository
@@ -20,6 +23,10 @@ public class ProductDaoImpl implements ProductDao {
 
         if(product != null)
         {
+            Category category = entityManager.find(Category.class, product.getCategory().getId());
+            Producer producer = entityManager.find(Producer.class, product.getProducer().getId());
+            product.setCategory(category);
+            product.setProducer(producer);
             entityManager.persist(product);
         }
 

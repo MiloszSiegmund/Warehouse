@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="per01@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="per01">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bookstore"/>
+    <schema id="4" parent="1" name="hibernate1"/>
+    <schema id="5" parent="1" name="hibernate2"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="jdbc"/>
+    <schema id="8" parent="1" name="jpa"/>
+    <schema id="9" parent="1" name="mydata"/>
+    <schema id="10" parent="1" name="mysql"/>
+    <schema id="11" parent="1" name="performance_schema"/>
+    <schema id="12" parent="1" name="products"/>
+    <schema id="13" parent="1" name="spring_jpa_db"/>
+    <schema id="14" parent="1" name="sys"/>
+    <schema id="15" parent="1" name="tabela"/>
+    <schema id="16" parent="1" name="test"/>
+    <schema id="17" parent="1" name="video"/>
+    <table id="18" parent="2" name="category"/>
+    <table id="19" parent="2" name="hibernate_sequence"/>
+    <table id="20" parent="2" name="producer"/>
+    <table id="21" parent="2" name="product"/>
+    <table id="22" parent="2" name="trade"/>
+    <column id="23" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="18" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="25" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="19" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="27" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="20" name="city">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="29" parent="20" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="30" parent="20" name="tradeId">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <index id="31" parent="20" name="FKl7693s6pjutoxvxk77xno4u6w">
+      <ColNames>tradeId</ColNames>
+    </index>
+    <key id="32" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="21" name="colour">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="35" parent="21" name="dateOfProduction">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="36" parent="21" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="37" parent="21" name="price">
+      <Position>5</Position>
+      <DataType>decimal(19,2)|0</DataType>
+    </column>
+    <column id="38" parent="21" name="categoryId">
+      <Position>6</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="39" parent="21" name="producerId">
+      <Position>7</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <index id="40" parent="21" name="FK42iy97xlo64j31dslbn36vmyh">
+      <ColNames>categoryId</ColNames>
+    </index>
+    <index id="41" parent="21" name="FKbi7tr2v4rbi928tx46ylhl2bg">
+      <ColNames>producerId</ColNames>
+    </index>
+    <key id="42" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="43" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="22" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="45" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

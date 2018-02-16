@@ -21,8 +21,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Filter[] getServletFilters() {
-        //przygotujemy nasz filter do kodowania utf-8 tylko pamietaj ze jak bedziesz mial wiecej tych filtrow
-        //to filder od kodowania utf-8 ma byc pierwszy w tablicy
+
         CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
         encodingFilter.setForceEncoding(true);
         encodingFilter.setEncoding("UTF-8");

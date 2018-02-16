@@ -79,8 +79,8 @@ public class ProducerController {
         }
         return "redirect:/producer/select_all";
     }
-    @RequestMapping(value = "/producer/update/{id}",method = RequestMethod.POST)
-    public String producerUpdatePost(@ModelAttribute Producer producer, Model model, HttpServletRequest request)
+    @RequestMapping(value = "/producer/update",method = RequestMethod.POST)
+    public String producerUpdatePost(@ModelAttribute Producer producer)
     {
         if (producer != null) {
             producerService.modifyProducer(producer);

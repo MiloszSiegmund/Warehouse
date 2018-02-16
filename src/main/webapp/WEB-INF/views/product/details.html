@@ -21,12 +21,20 @@
                     <td th:text="${product.price}"></td>
                 </tr>
                 <tr>
-                    <td>Birthdate:</td>
+                    <td>Colour:</td>
                     <td th:text="${product.colour}"></td>
                 </tr>
                 <tr>
-                    <td>Experience:</td>
+                    <td>Date Of Production:</td>
                     <td th:text="${product.dateOfProduction}"></td>
+                </tr>
+                <tr>
+                    <td>Producer:</td>
+                    <td th:text="${product.getProducer().getName()}"></td>
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td th:text="${product.getCategory().getName()}"></td>
                 </tr>
 
                 </tbody>

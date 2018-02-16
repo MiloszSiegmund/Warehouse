@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableTransactionManagement //do automatycznego zarzadzania transakcjami
+@EnableTransactionManagement
 @PropertySource("classpath:application.properties")
 public class JpaConfiguration {
     private Environment environment;
@@ -39,14 +39,14 @@ public class JpaConfiguration {
         return data;
     }
 
-    //JPA potrzebuje provider
+
     @Bean
     public JpaVendorAdapter jpaVendorAdapter()
     {
         return new HibernateJpaVendorAdapter();
     }
 
-    //obiekt z dodatkowymi ustawieniami hibernate
+
     public Properties jpaProperties()
     {
         Properties properties = new Properties();
@@ -63,13 +63,13 @@ public class JpaConfiguration {
     {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan(new String[]{"com.app"}); //ktore paczki maja byc skanowane w poszukiwaniu Entities
+        factoryBean.setPackagesToScan(new String[]{"com.app"});
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         factoryBean.setJpaProperties(jpaProperties());
         return factoryBean;
     }
 
-    //ponzyszy bean wstrzykuje powyzszy bean i otacza go transakcyjnoscia
+
     @Bean
     @Autowired
     public PlatformTransactionManager transactionManager(EntityManagerFactory entity)

@@ -54,12 +54,8 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
         public TemplateEngine templateEngine()
         {
             SpringTemplateEngine engine = new SpringTemplateEngine();
-            engine.setEnableSpringELCompiler(true); //w thymeleaf uzywasz specjalnej skladni tzw
-            //Spring Expression Langueage, ktory pozwala nam odwolywac sie do zmiennych w
-            //aplikacja java z poziomu html
-            engine.addDialect(new Java8TimeDialect()); //obsluga daty java 8, do zestawu klas thymeleaf
-            //ktore uzywamy w aplikcaji dodany zostanie obiekt temporals z poziomu ktorego bedziemy
-            //zarzadzac data java 8
+            engine.setEnableSpringELCompiler(true);
+            engine.addDialect(new Java8TimeDialect());
             engine.setTemplateResolver(templateResolver());
             return engine;
         }
@@ -67,7 +63,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
         private ITemplateResolver templateResolver()
         {
             SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-            resolver.setApplicationContext(applicationContext); //odwolanie sie do kontwkstu aplikacji
+            resolver.setApplicationContext(applicationContext);
             resolver.setPrefix("/WEB-INF/views/");
             resolver.setSuffix(".html");
             resolver.setTemplateMode(TemplateMode.HTML);
