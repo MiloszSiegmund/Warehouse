@@ -53,7 +53,7 @@ public class ProductController {
 
     @RequestMapping(value = "/product/form", method = RequestMethod.POST)
     public String productFormPost(
-            @ModelAttribute ProductForm productForm, Model model
+            @Valid @ModelAttribute ProductForm productForm, Model model
 
     ) {
 
@@ -63,6 +63,7 @@ public class ProductController {
                 .builder()
                 .name(productForm.getName())
                 .price(productForm.getPrice())
+                .dateOfProduction(productForm.getDateOfProduction())
                 .category(categoryService.getById(productForm.getCategoryId()).orElseThrow(NullPointerException::new))
                 .producer(producerService.getById(productForm.getProducerId()).orElseThrow(NullPointerException::new))
                 .colour(productForm.getColour())

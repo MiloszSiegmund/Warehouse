@@ -25,9 +25,11 @@ public class Product {
     @Id
     @GeneratedValue
     private Long id;
-    //@Pattern(regexp = "[A-Z][a-z]", message = "name is not correct")
+    @Pattern(regexp = "[A-Z][a-z]+")
     private String name;
+    @Min(value = 0)
     private BigDecimal price;
+    @Pattern(regexp = "[a-z]+")
     private String colour;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfProduction;
