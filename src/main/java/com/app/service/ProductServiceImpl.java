@@ -1,6 +1,7 @@
 package com.app.service;
 
 import com.app.dao.ProductDao;
+import com.app.dto.Converter;
 import com.app.dto.ProductDTO;
 import com.app.model.Product;
 import org.modelmapper.ModelMapper;
@@ -17,12 +18,12 @@ import java.util.stream.Collectors;
 public class ProductServiceImpl implements ProductService {
 
     private ProductDao productDao;
-    private ModelMapper modelMapper;
+    private Converter converter;
 
     @Autowired
-    public ProductServiceImpl(ProductDao productDao, ModelMapper modelMapper) {
+    public ProductServiceImpl(ProductDao productDao, Converter converter) {
         this.productDao = productDao;
-        this.modelMapper = modelMapper;
+        this.converter = converter;
     }
 
     @Override
@@ -51,6 +52,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductDTO> getAll() {
         List<Product> products = productDao.getAll();
-        return products.stream().map(p -> modelMapper.map(p, ProductDTO.class )).collect(Collectors.toList());
+        return products.stream().map(p -> converter.convertFromProductToProductDto(p)).collect(Collectors.toList());
     }
 }

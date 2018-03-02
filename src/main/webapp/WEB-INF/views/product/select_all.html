@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-6 offset-left">
             <h1 class="h1 mb-5">Products</h1>
-            <table class="table h6">
+            <table class="table h9">
                 <thead class="thead-dark">
                 <th>Id</th>
                 <th>Nazwa</th>
@@ -29,19 +29,16 @@
                     <td th:text="${p.productPrice}"></td>
                     <td th:text="${p.productColour}"></td>
                     <td th:text="${p.productDateOfProduction}"></td>
+                    <td th:text="${p.producerName}"></td>
+                    <td th:text="${p.categoryName}"></td>
+
+                <td><a class="btn btn-success" th:href="@{/product/update/{id}(id=${p.productId})}">Modify</a></td>
+                <td><a class="ml-3 btn btn-secondary" th:href="@{/product/details/{id}(id=${p.productId})}">Details</a></td>
+                <td><a class="ml-3 btn btn-danger" th:href="@{/product/delete/{id}(id=${p.productId})}">Delete</a></td>
 
 
 
-                    <td><a class="btn btn-success" th:href="@{/product/update/{id}(id=${p.productId})}">Modify</a></td>
-                    <td><a class="ml-3 btn btn-secondary" th:href="@{/product/details/{id}(id=${p.productId})}">Details</a></td>
-                    <td><a class="ml-3 btn btn-danger" th:href="@{/product/delete/{id}(id=${p.productId})}">Delete</a></td>
-                <tr th:each="r:${producer}">
-                    <td th:text="${r.producerName}"></td>
-                    <td th:text="${r.producerCity}"></td>
-                </tr>
-                <tr th:each="c : ${category}">
-                    <td th:text="${c.categoryName}"></td>
-                </tr>
+
 
 
                 </tr>

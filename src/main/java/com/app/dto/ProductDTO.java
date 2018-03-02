@@ -19,4 +19,9 @@ public class ProductDTO {
     private BigDecimal productPrice;
     private String productColour;
     private LocalDate productDateOfProduction;
+    private Long producerId;
+    private String producerName;
+    private String producerCity;
+    private Long categoryId;
+    private String categoryName;
 }
